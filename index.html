@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外卖优惠券</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .coupon-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .coupon-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .coupon-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .coupon-logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .coupon-info {
+            flex: 1;
+        }
+
+        .coupon-title {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .coupon-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .coupon-amount {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .claim-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .claim-btn:hover {
+            background: #ff5252;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            .coupon-item {
+                padding: 12px;
+            }
+
+            .coupon-logo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .coupon-title {
+                font-size: 15px;
+            }
+
+            .coupon-desc {
+                font-size: 13px;
+            }
+
+            .coupon-amount {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <script src="clipboard.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>外卖优惠券</h1>
+            <p>精选优惠券，一键领取</p>
+        </div>
+
+        <div class="coupon-section">
+            <h2 class="section-title">美团</h2>
+            <div class="coupon-list">
+                <div class="coupon-item">
+                    <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="美团" class="coupon-logo">
+                    <div class="coupon-info">
+                        <div class="coupon-title">天天神券</div>
+                        <div class="coupon-desc">满20减4元</div>
+                    </div>
+                    <div class="coupon-amount">今日有效</div>
+                </div>
+                <div class="coupon-item">
+                    <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="美团" class="coupon-logo">
+                    <div class="coupon-info">
+                        <div class="coupon-title">美团外卖满减券</div>
+                        <div class="coupon-desc">满25减6元</div>
+                    </div>
+                    <div class="coupon-amount">今日有效</div>
+                </div>
+                <div class="coupon-item">
+                    <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="美团" class="coupon-logo">
+                    <div class="coupon-info">
+                        <div class="coupon-title">美团通用立减券</div>
+                        <div class="coupon-desc">减18元</div>
+                    </div>
+                    <div class="coupon-amount">今日有效</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="coupon-section">
+            <h2 class="section-title">饿了么</h2>
+            <div class="coupon-list">
+                <div class="coupon-item">
+                    <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="饿了么" class="coupon-logo">
+                    <div class="coupon-info">
+                        <div class="coupon-title">吃货红包</div>
+                        <div class="coupon-desc">满25减6元</div>
+                    </div>
+                    <div class="coupon-amount">今日可用</div>
+                </div>
+                <div class="coupon-item">
+                    <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="饿了么" class="coupon-logo">
+                    <div class="coupon-info">
+                        <div class="coupon-title">饿了么满减券</div>
+                        <div class="coupon-desc">满45减12元</div>
+                    </div>
+                    <div class="coupon-amount">今日可用</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="claim-btn">一键领取所有优惠券</button>
+    </div>
+
+    <script>
+        document.querySelector('.claim-btn').addEventListener('click', function() {
+            var clipboard = new ClipboardJS(".claim-btn", {
+                text: function () {
+                    return "美好和美味都在路上美团外卖最高56元红包天天领" + "\n" + 'http://dpurl.cn/hg0WAc0z' + "\n\n" + "饿了么天天领红包 最高抢66元大额红包" + "\n" + "https://u.ele.me/KTS5iTiH";
+                }
+            });
+            clipboard.on("success", function (e) {
+                alert('优惠券领取成功！请打开对应APP查看');
+            });
+            
+            
+            
+        });
+    </script>
+</body>
+</html> 
